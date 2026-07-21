@@ -254,8 +254,15 @@ export default function Page() {
       </section>
 
       {/* Product Section */}
-      <section id="product" className="py-20 px-6 border-b border-[#d9cfc4]">
-        <div className="max-w-7xl mx-auto">
+      <section id="product" className="py-20 px-6 border-b border-[#d9cfc4] relative overflow-hidden">
+        <div className="absolute inset-0 opacity-15 z-0">
+          <img
+            src="/product-bg.jpeg"
+            alt="Product background"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="max-w-7xl mx-auto relative z-10">
           <div className="grid grid-cols-2 gap-20">
             <div>
               <p className="text-[#45926f] text-xs font-bold tracking-widest mb-8">— NOTRE PRODUIT</p>
