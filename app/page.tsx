@@ -124,12 +124,12 @@ export default function Page() {
   }
 
   return (
-    <main className="bg-[#f5f1ed]">
+    <main className="bg-[#f5f1ed] pt-16 md:pt-0">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#f5f1ed] border-b border-[#d9cfc4] py-4">
-        <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-[#f5f1ed] border-b border-[#d9cfc4] py-3 md:py-4">
+        <div className="max-w-7xl mx-auto px-3 md:px-6 flex items-center justify-between">
           <Link href="#" className="flex items-center gap-2">
-            <img src="/logo.png" alt="FIBAER" className="h-16 object-contain" />
+            <img src="/logo.png" alt="FIBAER" className="h-10 md:h-16 object-contain" />
           </Link>
           <nav className="hidden md:flex gap-12 items-center text-sm">
             <Link href="#about" className="text-[#999] hover:text-[#262522] transition-colors">
@@ -172,42 +172,42 @@ export default function Page() {
       </header>
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 border-b border-[#d9cfc4]">
+      <section className="pt-20 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 border-b border-[#d9cfc4]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-3 gap-20">
-            <div className="col-span-2">
-              <p className="text-[#999] text-xs font-medium tracking-widest mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-20">
+            <div className="col-span-1 md:col-span-2">
+              <p className="text-[#999] text-xs font-medium tracking-widest mb-4 md:mb-8">
                 {t.oran}
               </p>
-              <h1 className="text-6xl font-black text-[#262522] leading-tight mb-8">
+              <h1 className="text-3xl md:text-6xl font-black text-[#262522] leading-tight mb-6 md:mb-8">
                 SECOND <span className="text-[#45926f]">LIFE,</span> {language === 'fr' ? 'FIRST QUALITY.' : 'FIRST QUALITY.'}
               </h1>
-              <div className="flex gap-6">
+              <div className="flex flex-col sm:flex-row gap-3 md:gap-6">
                 <Link
                   href="#process"
-                  className="bg-[#45926f] hover:bg-[#3a7559] text-white px-8 py-4 font-bold text-sm transition-colors inline-block"
+                  className="bg-[#45926f] hover:bg-[#3a7559] text-white px-6 md:px-8 py-3 md:py-4 font-bold text-xs md:text-sm transition-colors inline-block text-center"
                 >
                   {t.discover}
                 </Link>
                 <Link
                   href="#contact"
-                  className="border-2 border-[#262522] text-[#262522] hover:bg-[#262522] hover:text-white px-8 py-4 font-bold text-sm transition-colors inline-block"
+                  className="border-2 border-[#262522] text-[#262522] hover:bg-[#262522] hover:text-white px-6 md:px-8 py-3 md:py-4 font-bold text-xs md:text-sm transition-colors inline-block text-center"
                 >
                   {t.quote}
                 </Link>
               </div>
             </div>
-            <div className="flex flex-col gap-12">
+            <div className="col-span-1 md:col-span-1 flex flex-col gap-6 md:gap-12">
               <div>
-                <p className="text-[#45926f] text-sm font-bold mb-2">48h</p>
+                <p className="text-[#45926f] text-sm md:text-sm font-bold mb-1 md:mb-2">48h</p>
                 <p className="text-[#999] text-xs">{t.delaiLivraison}</p>
               </div>
               <div>
-                <p className="text-[#45926f] text-3xl font-bold mb-2">7-15D</p>
+                <p className="text-[#45926f] text-xl md:text-3xl font-bold mb-1 md:mb-2">7-15D</p>
                 <p className="text-[#999] text-xs">{t.denierDisponible}</p>
               </div>
               <div>
-                <p className="text-[#45926f] text-3xl font-bold mb-2">250kg</p>
+                <p className="text-[#45926f] text-xl md:text-3xl font-bold mb-1 md:mb-2">250kg</p>
                 <p className="text-[#999] text-xs">{t.ballesStandards}</p>
               </div>
             </div>
@@ -216,37 +216,37 @@ export default function Page() {
       </section>
 
       {/* About Section */}
-      <section id="about" className="py-20 px-6 border-b border-[#d9cfc4]">
+      <section id="about" className="py-12 md:py-20 px-4 md:px-6 border-b border-[#d9cfc4]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 gap-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20">
             <div>
-              <p className="text-[#45926f] text-xs font-bold tracking-widest mb-8">— QUI SOMMES-NOUS</p>
-              <h2 className="text-5xl font-black text-[#262522] leading-tight mb-12">
+              <p className="text-[#45926f] text-xs font-bold tracking-widest mb-4 md:mb-8">— QUI SOMMES-NOUS</p>
+              <h2 className="text-2xl md:text-5xl font-black text-[#262522] leading-tight mb-6 md:mb-12">
                 LA OU LES AUTRES <span className="text-[#45926f]">IMPORTENT,</span> NOUS PRODUISONS.
               </h2>
-              <p className="text-[#666] text-sm leading-relaxed mb-8">
+              <p className="text-[#666] text-xs md:text-sm leading-relaxed mb-4 md:mb-8">
                 FIBAER est une startup industrielle algérienne basée à Oran, pionnière dans la transformation de bouteilles plastiques post-consommation en fibre polyester creuse de haute qualité destinée aux secteurs du textile, de la literie et de l&apos;ameublement.
               </p>
-              <p className="text-[#666] text-sm leading-relaxed">
+              <p className="text-[#666] text-xs md:text-sm leading-relaxed">
                 Nous développons une chaîne de valeur entièrement nationale qui transforme un déchet en une matière première à forte valeur ajoutée, afin d&apos;approvisionner les industriels algériens en dinars et de réduire la dépendance aux importations.
               </p>
             </div>
-            <div className="grid grid-cols-2 gap-6">
-              <div className="border border-[#d9cfc4] p-6">
-                <p className="text-[#262522] font-bold text-sm mb-2">100% Algérien</p>
-                <p className="text-[#999] text-xs">Matière, process et livraison locale</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6">
+              <div className="border border-[#d9cfc4] p-4 md:p-6">
+                <p className="text-[#262522] font-bold text-xs md:text-sm mb-1 md:mb-2">100% Algérien</p>
+                <p className="text-[#999] text-xs md:text-xs">Matière, process et livraison locale</p>
               </div>
-              <div className="border border-[#d9cfc4] p-6">
-                <p className="text-[#262522] font-bold text-sm mb-2">Certifiable rPET</p>
-                <p className="text-[#999] text-xs">Trace de la bouteille a la balle</p>
+              <div className="border border-[#d9cfc4] p-4 md:p-6">
+                <p className="text-[#262522] font-bold text-xs md:text-sm mb-1 md:mb-2">Certifiable rPET</p>
+                <p className="text-[#999] text-xs md:text-xs">Trace de la bouteille a la balle</p>
               </div>
-              <div className="border border-[#d9cfc4] p-6">
-                <p className="text-[#262522] font-bold text-sm mb-2">Paiement DZD</p>
-                <p className="text-[#999] text-xs">Aucune depense en devises</p>
+              <div className="border border-[#d9cfc4] p-4 md:p-6">
+                <p className="text-[#262522] font-bold text-xs md:text-sm mb-1 md:mb-2">Paiement DZD</p>
+                <p className="text-[#999] text-xs md:text-xs">Aucune depense en devises</p>
               </div>
-              <div className="border border-[#d9cfc4] p-6">
-                <p className="text-[#262522] font-bold text-sm mb-2">Livraison 48h</p>
-                <p className="text-[#999] text-xs">Stock permanent disponible</p>
+              <div className="border border-[#d9cfc4] p-4 md:p-6">
+                <p className="text-[#262522] font-bold text-xs md:text-sm mb-1 md:mb-2">Livraison 48h</p>
+                <p className="text-[#999] text-xs md:text-xs">Stock permanent disponible</p>
               </div>
             </div>
           </div>
@@ -254,50 +254,50 @@ export default function Page() {
       </section>
 
       {/* Product Section */}
-      <section id="product" className="py-20 px-6 border-b border-[#d9cfc4]">
+      <section id="product" className="py-12 md:py-20 px-4 md:px-6 border-b border-[#d9cfc4]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 gap-20">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20">
             <div>
-              <p className="text-[#45926f] text-xs font-bold tracking-widest mb-8">— NOTRE PRODUIT</p>
-              <h2 className="text-5xl font-black text-[#262522] leading-tight mb-8">
+              <p className="text-[#45926f] text-xs font-bold tracking-widest mb-4 md:mb-8">— NOTRE PRODUIT</p>
+              <h2 className="text-2xl md:text-5xl font-black text-[#262522] leading-tight mb-6 md:mb-8">
                 FIBRE POLYESTER <span className="text-[#45926f]">CREUSE CONJUGUEE</span> HCS RPET
               </h2>
-              <p className="text-[#999] text-sm leading-relaxed mb-6">
+              <p className="text-[#999] text-xs md:text-sm leading-relaxed mb-4 md:mb-6">
                 Notre fibre est produite a partir de paillettes de bouteilles PET recyclees. Sa structure creuse lui confere legerete, gonflant et resilience exceptionnels. Qualite identique a la fibre vierge importee, a un prix competitif.
               </p>
-              <p className="text-[#999] text-xs font-medium tracking-wide mb-8">
+              <p className="text-[#999] text-xs font-medium tracking-wide mb-6 md:mb-8">
                 LIVREE EN 48H / IMPORTEE EN 4-8 SEMAINES
               </p>
-              <div className="space-y-4">
-                <div className="flex gap-4">
-                  <span className="text-[#45926f] font-bold text-sm">7 Denier</span>
-                  <span className="text-[#999] text-sm">Oreillers & coussins premium</span>
+              <div className="space-y-3 md:space-y-4">
+                <div className="flex gap-3 md:gap-4">
+                  <span className="text-[#45926f] font-bold text-xs md:text-sm">7 Denier</span>
+                  <span className="text-[#999] text-xs md:text-sm">Oreillers & coussins premium</span>
                 </div>
-                <div className="flex gap-4">
-                  <span className="text-[#45926f] font-bold text-sm">15 Denier</span>
-                  <span className="text-[#999] text-sm">Matelas & rembourrage epais</span>
+                <div className="flex gap-3 md:gap-4">
+                  <span className="text-[#45926f] font-bold text-xs md:text-sm">15 Denier</span>
+                  <span className="text-[#999] text-xs md:text-sm">Matelas & rembourrage epais</span>
                 </div>
               </div>
             </div>
-            <div className="space-y-6">
-              <div className="border border-[#d9cfc4] p-6">
-                <p className="text-[#45926f] font-bold text-xs mb-3">7 Denier</p>
-                <p className="text-[#262522] font-bold text-sm mb-4">Oreillers & coussins premium</p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="border border-[#d9cfc4] px-3 py-1 text-xs text-[#999]">Structure creuse conjuguee</span>
-                  <span className="border border-[#d9cfc4] px-3 py-1 text-xs text-[#999]">Silicone anti-feutrage</span>
-                  <span className="border border-[#d9cfc4] px-3 py-1 text-xs text-[#999]">Coupe : 32 mm</span>
-                  <span className="border border-[#d9cfc4] px-3 py-1 text-xs text-[#999]">Gonflant superieur</span>
+            <div className="space-y-3 md:space-y-6">
+              <div className="border border-[#d9cfc4] p-4 md:p-6">
+                <p className="text-[#45926f] font-bold text-xs mb-2 md:mb-3">7 Denier</p>
+                <p className="text-[#262522] font-bold text-xs md:text-sm mb-3 md:mb-4">Oreillers & coussins premium</p>
+                <div className="flex flex-wrap gap-1 md:gap-2">
+                  <span className="border border-[#d9cfc4] px-2 md:px-3 py-1 text-xs text-[#999]">Structure creuse conjuguee</span>
+                  <span className="border border-[#d9cfc4] px-2 md:px-3 py-1 text-xs text-[#999]">Silicone anti-feutrage</span>
+                  <span className="border border-[#d9cfc4] px-2 md:px-3 py-1 text-xs text-[#999]">Coupe : 32 mm</span>
+                  <span className="border border-[#d9cfc4] px-2 md:px-3 py-1 text-xs text-[#999]">Gonflant superieur</span>
                 </div>
               </div>
-              <div className="border border-[#d9cfc4] p-6">
-                <p className="text-[#45926f] font-bold text-xs mb-3">15 Denier</p>
-                <p className="text-[#262522] font-bold text-sm mb-4">Matelas & rembourrage epais</p>
-                <div className="flex flex-wrap gap-2">
-                  <span className="border border-[#d9cfc4] px-3 py-1 text-xs text-[#999]">Structure creuse HCS</span>
-                  <span className="border border-[#d9cfc4] px-3 py-1 text-xs text-[#999]">Haute resilience</span>
-                  <span className="border border-[#d9cfc4] px-3 py-1 text-xs text-[#999]">Coupe : 51 mm</span>
-                  <span className="border border-[#d9cfc4] px-3 py-1 text-xs text-[#999]">Resistance a la compression</span>
+              <div className="border border-[#d9cfc4] p-4 md:p-6">
+                <p className="text-[#45926f] font-bold text-xs mb-2 md:mb-3">15 Denier</p>
+                <p className="text-[#262522] font-bold text-xs md:text-sm mb-3 md:mb-4">Matelas & rembourrage epais</p>
+                <div className="flex flex-wrap gap-1 md:gap-2">
+                  <span className="border border-[#d9cfc4] px-2 md:px-3 py-1 text-xs text-[#999]">Structure creuse HCS</span>
+                  <span className="border border-[#d9cfc4] px-2 md:px-3 py-1 text-xs text-[#999]">Haute resilience</span>
+                  <span className="border border-[#d9cfc4] px-2 md:px-3 py-1 text-xs text-[#999]">Coupe : 51 mm</span>
+                  <span className="border border-[#d9cfc4] px-2 md:px-3 py-1 text-xs text-[#999]">Resistance a la compression</span>
                 </div>
               </div>
             </div>
