@@ -14,7 +14,7 @@ const translations = {
     ballesStandards: 'BALLES STANDARDS',
     aboutTitle: 'QUI SOMMES-NOUS',
     aboutHeading: 'LA OU LES AUTRES IMPORTENT, NOUS PRODUISONS.',
-    aboutDesc1: 'FIBAER est une startup industrielle algérienne basée à Oran, pionnière dans la transformation de bouteilles plastiques post-consommation en fibre polyester creuse de haute qualité destinée aux secteurs du textile, de la literie et de l\'ameublement.',
+    aboutDesc1: 'Refiber est une startup industrielle algérienne basée à Oran, pionnière dans la transformation de bouteilles plastiques post-consommation en fibre polyester creuse de haute qualité destinée aux secteurs du textile, de la literie et de l\'ameublement.',
     aboutDesc2: 'Nous développons une chaîne de valeur entièrement nationale qui transforme un déchet en une matière première à forte valeur ajoutée, afin d\'approvisionner les industriels algériens en dinars et de réduire la dépendance aux importations.',
     feature1: '100% Algérien',
     feature1Desc: 'Matière, process et livraison locale',
@@ -31,7 +31,7 @@ const translations = {
     productNav: 'NOUS CONTACTER',
     processTitle: 'PROCESSUS DE FABRICATION',
     processHeading: 'DE LA BOUTEILLE A LA BALLE EN 8 ETAPES.',
-    advantagesTitle: 'POURQUOI FIBAER',
+    advantagesTitle: 'POURQUOI Refiber',
     advantagesHeading: 'L\'AVANTAGE LOCAL.',
     impactTitle: 'NOTRE IMPACT',
     impactHeading: 'CHAQUE TONNE COMPTE.',
@@ -52,7 +52,7 @@ const translations = {
     messageLabel: 'MESSAGE',
     messagePlaceholder: 'Votre message ou demande de devis...',
     submitButton: 'ENVOYER LE MESSAGE',
-    footerCopy: '© 2024 FIBAER -- Oran, Algerie',
+    footerCopy: '© 2024 Refiber -- Oran, Algerie',
   },
   en: {
     oran: 'ORAN, ALGERIA -- PREMIER NATIONAL PRODUCER',
@@ -64,7 +64,7 @@ const translations = {
     ballesStandards: 'STANDARD BALES',
     aboutTitle: 'ABOUT US',
     aboutHeading: 'WHERE OTHERS IMPORT, WE PRODUCE.',
-    aboutDesc1: 'FIBAER is an Algerian industrial startup based in Oran, pioneering the transformation of post-consumer plastic bottles into high-quality hollow polyester fiber intended for the textile, bedding and furniture sectors.',
+    aboutDesc1: 'Refiber is an Algerian industrial startup based in Oran, pioneering the transformation of post-consumer plastic bottles into high-quality hollow polyester fiber intended for the textile, bedding and furniture sectors.',
     aboutDesc2: 'We develop an entirely national value chain that transforms waste into high value-added raw material, to supply Algerian industrialists in dinars and reduce import dependence.',
     feature1: '100% Algerian',
     feature1Desc: 'Material, process and local delivery',
@@ -81,7 +81,7 @@ const translations = {
     productNav: 'CONTACT US',
     processTitle: 'MANUFACTURING PROCESS',
     processHeading: 'FROM BOTTLE TO BALE IN 8 STEPS.',
-    advantagesTitle: 'WHY FIBAER',
+    advantagesTitle: 'WHY Refiber',
     advantagesHeading: 'THE LOCAL ADVANTAGE.',
     impactTitle: 'OUR IMPACT',
     impactHeading: 'EVERY TONNE COUNTS.',
@@ -102,7 +102,7 @@ const translations = {
     messageLabel: 'MESSAGE',
     messagePlaceholder: 'Your message or quote request...',
     submitButton: 'SEND MESSAGE',
-    footerCopy: '© 2024 FIBAER -- Oran, Algeria',
+    footerCopy: '© 2024 Refiber -- Oran, Algeria',
   },
 }
 
@@ -129,7 +129,7 @@ export default function Page() {
       <header className="fixed top-0 left-0 right-0 z-50 bg-[#f5f1ed] border-b border-[#d9cfc4] py-3 md:py-4">
         <div className="max-w-7xl mx-auto px-3 md:px-6 flex items-center justify-between">
           <Link href="#" className="flex items-center gap-2">
-            <img src="/logo.png" alt="FIBAER" className="h-10 md:h-16 object-contain" />
+            <img src="/logo.png" alt="Refiber" className="h-10 md:h-16 object-contain mix-blend-multiply" />
           </Link>
           <nav className="hidden md:flex gap-12 items-center text-sm">
             <Link href="#about" className="text-[#999] hover:text-[#262522] transition-colors">
@@ -225,7 +225,7 @@ export default function Page() {
                 LA OU LES AUTRES <span className="text-[#45926f]">IMPORTENT,</span> NOUS PRODUISONS.
               </h2>
               <p className="text-[#666] text-xs md:text-sm leading-relaxed mb-4 md:mb-8">
-                FIBAER est une startup industrielle algérienne basée à Oran, pionnière dans la transformation de bouteilles plastiques post-consommation en fibre polyester creuse de haute qualité destinée aux secteurs du textile, de la literie et de l&apos;ameublement.
+                Refiber est une startup industrielle algérienne basée à Oran, pionnière dans la transformation de bouteilles plastiques post-consommation en fibre polyester creuse de haute qualité destinée aux secteurs du textile, de la literie et de l&apos;ameublement.
               </p>
               <p className="text-[#666] text-xs md:text-sm leading-relaxed">
                 Nous développons une chaîne de valeur entièrement nationale qui transforme un déchet en une matière première à forte valeur ajoutée, afin d&apos;approvisionner les industriels algériens en dinars et de réduire la dépendance aux importations.
@@ -388,7 +388,7 @@ export default function Page() {
       {/* Local Advantages */}
       <section className="py-20 px-6 border-b border-[#d9cfc4]">
         <div className="max-w-7xl mx-auto">
-          <p className="text-[#45926f] text-xs font-bold tracking-widest mb-8">— POURQUOI FIBAER</p>
+          <p className="text-[#45926f] text-xs font-bold tracking-widest mb-8">— POURQUOI Refiber</p>
           <h2 className="text-5xl font-black text-[#262522] leading-tight mb-12">
             L&apos;AVANTAGE <span className="text-[#45926f]">LOCAL.</span>
           </h2>
@@ -434,7 +434,7 @@ export default function Page() {
           <div className="grid grid-cols-2 gap-8 mb-12">
             <div>
               <p className="text-[#262522] text-base leading-relaxed mb-8">
-                Chaque tonne de fibre FIBAER transforme un dechet en matiere premiere a forte valeur ajoutee, tout en preservant les ressources naturelles et en renforçant la souverainete industrielle nationale.
+                Chaque tonne de fibre Refiber transforme un dechet en matiere premiere a forte valeur ajoutee, tout en preservant les ressources naturelles et en renforçant la souverainete industrielle nationale.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4 border-t-2 border-r-2 border-b-2 border-[#45926f]">
@@ -515,7 +515,7 @@ export default function Page() {
         <div className="max-w-7xl mx-auto flex items-center justify-center">
           <img
             src="/bulk-bag.jpeg"
-            alt="Balles de fibre FIBAER"
+            alt="Balles de fibre Refiber"
             className="max-w-2xl w-full h-auto transition-all duration-500 hover:scale-110 hover:drop-shadow-2xl cursor-pointer transform hover:-translate-y-4"
           />
         </div>
@@ -547,7 +547,7 @@ export default function Page() {
                   <p className="font-bold text-[#262522] mb-2">
                     &quot;La ou les autres importent, nous produisons.&quot;
                   </p>
-                  <p className="text-[#999] text-xs">FIBAER -- Oran, Algerie</p>
+                  <p className="text-[#999] text-xs">Refiber -- Oran, Algerie</p>
                 </blockquote>
               </div>
             </div>
@@ -610,7 +610,7 @@ export default function Page() {
       {/* Footer */}
       <footer className="bg-[#262522] text-white py-12 px-6 border-t border-[#d9cfc4]">
         <div className="max-w-7xl mx-auto text-center">
-          <p className="text-xs text-white/50 font-medium">© 2024 FIBAER -- Oran, Algerie</p>
+          <p className="text-xs text-white/50 font-medium">© 2024 Refiber -- Oran, Algerie</p>
         </div>
       </footer>
     </main>
