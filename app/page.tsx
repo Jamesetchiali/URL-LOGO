@@ -305,17 +305,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Product Showcase Image */}
-      <section className="py-16 px-6 border-b border-[#6c9ec3] bg-white">
-        <div className="max-w-7xl mx-auto">
-          <img
-            src="/fibre-showcase.jpeg"
-            alt="Fibre Polyester Creuse Conjuguee HCS rPET"
-            className="w-full h-auto object-cover rounded-lg"
-          />
-        </div>
-      </section>
-
       {/* Process Section */}
       <section id="process" className="py-20 px-6 border-b border-[#6c9ec3] bg-[#1a2c5a] text-white">
         <div className="max-w-7xl mx-auto">
