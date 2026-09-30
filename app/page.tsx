@@ -499,17 +499,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Bulk Bag Section */}
-      <section className="py-20 px-6 border-b border-[#6c9ec3] bg-gradient-to-b from-[#ffffff] to-black">
-        <div className="max-w-7xl mx-auto flex items-center justify-center">
-          <img
-            src="/bulk-bag.jpeg"
-            alt="Balles de fibre Phoeber"
-            className="max-w-2xl w-full h-auto transition-all duration-500 hover:scale-110 hover:drop-shadow-2xl cursor-pointer transform hover:-translate-y-4"
-          />
-        </div>
-      </section>
-
       {/* Contact Section */}
       <section id="contact" className="py-20 px-6">
         <div className="max-w-7xl mx-auto">
