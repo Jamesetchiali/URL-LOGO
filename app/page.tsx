@@ -179,6 +179,9 @@ export default function Page() {
               <p className="text-[#6c9ec3] text-xs font-medium tracking-widest mb-4 md:mb-8">
                 {t.oran}
               </p>
+              <p className="text-[#105fb8] text-sm md:text-base font-bold tracking-wide uppercase mb-3 md:mb-4">
+                {language === 'fr' ? 'Fabricant de fibre polyester HCS' : 'HCS polyester fiber manufacturer'}
+              </p>
               <h1 className="text-3xl md:text-6xl font-black text-[#1a2c5a] leading-tight mb-6 md:mb-8">
                 SECOND <span className="text-[#105fb8]">LIFE,</span> {language === 'fr' ? 'FIRST QUALITY.' : 'FIRST QUALITY.'}
               </h1>
