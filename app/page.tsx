@@ -1,599 +1,116 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 
-const translations = {
-  fr: {
-    oran: 'ORAN, ALGERIE -- PREMIER PRODUCTEUR NATIONAL',
-    tagline: 'Second life, First Quality.',
-    discover: 'DECOUVRIR NOTRE FIBRE',
-    quote: 'DEMANDER UN DEVIS',
-    delaiLivraison: 'DELAI LIVRAISON',
-    denierDisponible: 'DENIER DISPONIBLE',
-    ballesStandards: 'BALLES STANDARDS',
-    aboutTitle: 'QUI SOMMES-NOUS',
-    aboutHeading: 'LA OU LES AUTRES IMPORTENT, NOUS PRODUISONS.',
-    aboutDesc1: 'Phoeber est une startup industrielle algérienne basée à Oran, pionnière dans la transformation de bouteilles plastiques post-consommation en fibre polyester creuse de haute qualité destinée aux secteurs du textile, de la literie et de l\'ameublement.',
-    aboutDesc2: 'Nous développons une chaîne de valeur entièrement nationale qui transforme un déchet en une matière première à forte valeur ajoutée, afin d\'approvisionner les industriels algériens en dinars et de réduire la dépendance aux importations.',
-    feature1: '100% Algérien',
-    feature1Desc: 'Matière, process et livraison locale',
-    feature2: 'Certifiable rPET',
-    feature2Desc: 'Trace de la bouteille a la balle',
-    feature3: 'Paiement DZD',
-    feature3Desc: 'Aucune depense en devises',
-    feature4: 'Livraison 48h',
-    feature4Desc: 'Stock permanent disponible',
-    productTitle: 'NOTRE PRODUIT',
-    productHeading: 'FIBRE POLYESTER CREUSE CONJUGUEE HCS RPET',
-    productDesc: 'Notre fibre est produite a partir de paillettes de bouteilles PET recyclees. Sa structure creuse lui confere legerete, gonflant et resilience exceptionnels. Qualite identique a la fibre vierge importee, a un prix competitif.',
-    productDelivery: 'LIVREE EN 48H / IMPORTEE EN 4-8 SEMAINES',
-    productNav: 'NOUS CONTACTER',
-    processTitle: 'PROCESSUS DE FABRICATION',
-    processHeading: 'DE LA BOUTEILLE A LA BALLE EN 8 ETAPES.',
-    advantagesTitle: 'POURQUOI Phoeber',
-    advantagesHeading: 'L\'AVANTAGE LOCAL.',
-    impactTitle: 'NOTRE IMPACT',
-    impactHeading: 'CHAQUE TONNE COMPTE.',
-    clientsTitle: 'NOS CLIENTS',
-    clientsHeading: 'FABRICANTS ALGERIENS DE LITERIE.',
-    contactTitle: 'CONTACT',
-    contactHeading: 'PARLONS FIBRE.',
-    address: 'Zone Industrielle -- Oran, Algerie',
-    email: 'contact@fibaer.dz',
-    website: 'www.fibaer.dz',
-    quote2: 'La ou les autres importent, nous produisons.',
-    nomLabel: 'NOM',
-    nomPlaceholder: 'Votre nom',
-    entrepriseLabel: 'ENTREPRISE',
-    entreprisePlaceholder: 'Votre entreprise',
-    emailLabel: 'EMAIL',
-    emailPlaceholder: 'email@example.dz',
-    messageLabel: 'MESSAGE',
-    messagePlaceholder: 'Votre message ou demande de devis...',
-    submitButton: 'ENVOYER LE MESSAGE',
-    footerCopy: '© 2024 Phoeber -- Oran, Algerie',
-  },
+const copy = {
   en: {
-    oran: 'ORAN, ALGERIA -- PREMIER NATIONAL PRODUCER',
-    tagline: 'Second life, First Quality.',
-    discover: 'DISCOVER OUR FIBER',
-    quote: 'REQUEST A QUOTE',
-    delaiLivraison: 'DELIVERY TIME',
-    denierDisponible: 'AVAILABLE DENIERS',
-    ballesStandards: 'STANDARD BALES',
-    aboutTitle: 'ABOUT US',
-    aboutHeading: 'WHERE OTHERS IMPORT, WE PRODUCE.',
-    aboutDesc1: 'Phoeber is an Algerian industrial startup based in Oran, pioneering the transformation of post-consumer plastic bottles into high-quality hollow polyester fiber intended for the textile, bedding and furniture sectors.',
-    aboutDesc2: 'We develop an entirely national value chain that transforms waste into high value-added raw material, to supply Algerian industrialists in dinars and reduce import dependence.',
-    feature1: '100% Algerian',
-    feature1Desc: 'Material, process and local delivery',
-    feature2: 'Certifiable rPET',
-    feature2Desc: 'Traced from bottle to bale',
-    feature3: 'DZD Payment',
-    feature3Desc: 'No foreign exchange expenses',
-    feature4: '48h Delivery',
-    feature4Desc: 'Permanent stock available',
-    productTitle: 'OUR PRODUCT',
-    productHeading: 'CONJUGATED HOLLOW POLYESTER FIBER HCS RPET',
-    productDesc: 'Our fiber is produced from recycled PET bottle flakes. Its hollow structure gives it exceptional lightness, loft and resilience. Quality identical to imported virgin fiber, at a competitive price.',
-    productDelivery: 'DELIVERED IN 48H / IMPORTED IN 4-8 WEEKS',
-    productNav: 'CONTACT US',
-    processTitle: 'MANUFACTURING PROCESS',
-    processHeading: 'FROM BOTTLE TO BALE IN 8 STEPS.',
-    advantagesTitle: 'WHY Phoeber',
-    advantagesHeading: 'THE LOCAL ADVANTAGE.',
-    impactTitle: 'OUR IMPACT',
-    impactHeading: 'EVERY TONNE COUNTS.',
-    clientsTitle: 'OUR CLIENTS',
-    clientsHeading: 'ALGERIAN BEDDING MANUFACTURERS.',
-    contactTitle: 'CONTACT',
-    contactHeading: 'LET\'S TALK FIBER.',
-    address: 'Industrial Zone -- Oran, Algeria',
-    email: 'contact@fibaer.dz',
-    website: 'www.fibaer.dz',
-    quote2: 'Where others import, we produce.',
-    nomLabel: 'NAME',
-    nomPlaceholder: 'Your name',
-    entrepriseLabel: 'COMPANY',
-    entreprisePlaceholder: 'Your company',
-    emailLabel: 'EMAIL',
-    emailPlaceholder: 'email@example.dz',
-    messageLabel: 'MESSAGE',
-    messagePlaceholder: 'Your message or quote request...',
-    submitButton: 'SEND MESSAGE',
-    footerCopy: '© 2024 Phoeber -- Oran, Algeria',
+    nav: ['Home', 'Products', 'Applications', 'About', 'Contact'],
+    quote: 'Request a Quote',
+    location: 'Oran, Algeria · Local manufacturing',
+    heroTitle: 'Recycled HCS polyester fiber for industry.',
+    slogan: 'Second life, First quality',
+    heroText: 'Phoeber manufactures Hollow Conjugated Siliconized rPET Fiber for mattress, pillow, cushion, bedding, textile and furniture manufacturers.',
+    viewProducts: 'View Products',
+    hcsText: 'A consistent recycled fiber solution, manufactured for professional industrial use.',
+    aboutLabel: 'About Phoeber',
+    aboutTitle: 'An Algerian manufacturer built for industrial buyers.',
+    aboutText: ['Phoeber is an industrial manufacturer based in Oran, Algeria, specializing in Hollow Conjugated Siliconized Recycled Polyester Fiber.', 'We supply professional manufacturers with local HCS rPET fiber in two core deniers: 7D and 15D.'],
+    productsLabel: 'Products',
+    productsTitle: 'HCS rPET Fiber',
+    productsText: 'Two practical specifications for the most common filling and bedding applications.',
+    applicationsLabel: 'Industrial applications',
+    applicationsTitle: 'Fiber solutions for manufacturers.',
+    whyLabel: 'Why choose Phoeber',
+    why: [['Local supply', 'Manufactured in Oran for Algerian industrial customers.'], ['Product focus', 'Specialized HCS rPET fiber in 7D and 15D specifications.'], ['Direct inquiries', 'Speak directly with our team about your production requirements.']],
+    contactLabel: 'Contact',
+    contactTitle: 'Request a Quote',
+    contactText: 'Tell us what your production requires and our team will respond directly.',
+    form: ['Full Name', 'Company Name', 'Business Email', 'Phone Number', 'Product Selection', 'Estimated Quantity', 'Message'],
+    select: 'Select a product',
+    prepared: 'Your email application has been prepared. Please send the message to complete your inquiry.',
+    footer: 'Recycled HCS Polyester Fiber Manufacturer',
   },
-}
+  fr: {
+    nav: ['Accueil', 'Produits', 'Applications', 'À propos', 'Contact'],
+    quote: 'Demander un devis',
+    location: 'Oran, Algérie · Fabrication locale',
+    heroTitle: 'Fibre polyester HCS recyclée pour l’industrie.',
+    slogan: 'Seconde vie, première qualité',
+    heroText: 'Phoeber fabrique une fibre rPET polyester creuse, conjuguée et siliconée pour les fabricants de matelas, oreillers, coussins, literie, textile et ameublement.',
+    viewProducts: 'Voir les produits',
+    hcsText: 'Une solution de fibre recyclée régulière, fabriquée pour un usage industriel professionnel.',
+    aboutLabel: 'À propos de Phoeber',
+    aboutTitle: 'Un fabricant algérien conçu pour les acheteurs industriels.',
+    aboutText: ['Phoeber est un fabricant industriel basé à Oran, en Algérie, spécialisé dans la fibre polyester recyclée creuse, conjuguée et siliconée.', 'Nous fournissons aux industriels une fibre HCS rPET locale en deux deniers principaux : 7D et 15D.'],
+    productsLabel: 'Produits',
+    productsTitle: 'Fibre HCS rPET',
+    productsText: 'Deux spécifications adaptées aux principales applications de rembourrage et de literie.',
+    applicationsLabel: 'Applications industrielles',
+    applicationsTitle: 'Des solutions de fibre pour les fabricants.',
+    whyLabel: 'Pourquoi Phoeber',
+    why: [['Approvisionnement local', 'Fabriquée à Oran pour les industriels algériens.'], ['Expertise produit', 'Fibre HCS rPET spécialisée en 7D et 15D.'], ['Contact direct', 'Échangez directement avec notre équipe sur vos besoins de production.']],
+    contactLabel: 'Contact',
+    contactTitle: 'Demander un devis',
+    contactText: 'Indiquez vos besoins de production et notre équipe vous répondra directement.',
+    form: ['Nom complet', 'Entreprise', 'Email professionnel', 'Téléphone', 'Choix du produit', 'Quantité estimée', 'Message'],
+    select: 'Choisir un produit',
+    prepared: 'Votre application email est prête. Envoyez le message pour terminer votre demande.',
+    footer: 'Fabricant de fibre polyester HCS recyclée',
+  },
+} as const
+
+const products = [
+  { name: 'HCS rPET 7D', specs: ['7 Denier', 'Coupe 32 mm', 'Finition siliconée'], use: { en: 'Pillows and cushions', fr: 'Oreillers et coussins' } },
+  { name: 'HCS rPET 15D', specs: ['15 Denier', 'Coupe 51 mm', 'Structure creuse conjuguée'], use: { en: 'Mattresses and thicker filling', fr: 'Matelas et rembourrage épais' } },
+]
+
+const applications = { en: ['Mattresses', 'Pillows', 'Cushions', 'Bedding', 'Textile and furniture'], fr: ['Matelas', 'Oreillers', 'Coussins', 'Literie', 'Textile et ameublement'] }
 
 export default function Page() {
-  const [language, setLanguage] = useState<'fr' | 'en'>('fr')
-  const [formData, setFormData] = useState({
-    name: '',
-    company: '',
-    email: '',
-    message: '',
-  })
+  const [language, setLanguage] = useState<'en' | 'fr'>('en')
+  const [submitted, setSubmitted] = useState(false)
+  const t = copy[language]
 
-  const t = translations[language]
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log('Form submitted:', formData)
-    setFormData({ name: '', company: '', email: '', message: '' })
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    const form = new FormData(event.currentTarget)
+    const subject = encodeURIComponent(`${t.quote} - ${form.get('company') || form.get('name')}`)
+    const body = encodeURIComponent(`Name: ${form.get('name')}\nCompany: ${form.get('company')}\nEmail: ${form.get('email')}\nPhone: ${form.get('phone')}\nProduct: ${form.get('product')}\nQuantity: ${form.get('quantity')}\n\n${form.get('message')}`)
+    window.location.href = `mailto:contact@fibaer.dz?subject=${subject}&body=${body}`
+    setSubmitted(true)
   }
 
   return (
-    <main className="bg-[#ffffff] pt-16 md:pt-0">
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#ffffff] border-b border-[#6c9ec3] py-3 md:py-4">
-        <div className="max-w-7xl mx-auto px-3 md:px-6 flex items-center justify-between">
-          <Link href="#" className="flex items-center gap-2">
-            <img src="/logo.png" alt="Phoeber" className="h-10 md:h-16 object-contain mix-blend-multiply" />
-          </Link>
-          <nav className="hidden md:flex gap-12 items-center text-sm">
-            <Link href="#about" className="text-[#6c9ec3] hover:text-[#1a2c5a] transition-colors">
-              {language === 'fr' ? 'A PROPOS' : 'ABOUT'}
-            </Link>
-            <Link href="#product" className="text-[#6c9ec3] hover:text-[#1a2c5a] transition-colors">
-              {language === 'fr' ? 'PRODUIT' : 'PRODUCT'}
-            </Link>
-            <Link href="#process" className="text-[#6c9ec3] hover:text-[#1a2c5a] transition-colors">
-              {language === 'fr' ? 'PROCESS' : 'PROCESS'}
-            </Link>
-            <Link href="#impact" className="text-[#6c9ec3] hover:text-[#1a2c5a] transition-colors">
-              {language === 'fr' ? 'IMPACT' : 'IMPACT'}
-            </Link>
-            <Link href="#contact" className="text-[#6c9ec3] hover:text-[#1a2c5a] transition-colors">
-              {language === 'fr' ? 'CONTACT' : 'CONTACT'}
-            </Link>
-            <div className="flex gap-3 ml-6 pl-6 border-l border-[#6c9ec3]">
-              <button
-                onClick={() => setLanguage('fr')}
-                className={`text-xs font-bold transition-colors ${language === 'fr' ? 'text-[#105fb8]' : 'text-[#6c9ec3] hover:text-[#1a2c5a]'}`}
-              >
-                FR
-              </button>
-              <button
-                onClick={() => setLanguage('en')}
-                className={`text-xs font-bold transition-colors ${language === 'en' ? 'text-[#105fb8]' : 'text-[#6c9ec3] hover:text-[#1a2c5a]'}`}
-              >
-                EN
-              </button>
-            </div>
-          </nav>
-          <Link
-            href="#contact"
-            className="bg-[#105fb8] hover:bg-[#1a2c5a] text-white px-6 py-2 text-sm font-bold transition-colors"
-          >
-            {language === 'fr' ? 'NOUS CONTACTER' : 'CONTACT US'}
-          </Link>
+    <main className="bg-white text-[#1a2c5a]">
+      <header className="sticky top-0 z-50 border-b border-[#6c9ec3]/40 bg-white/95 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 md:px-6 md:py-4">
+          <Link href="#home" aria-label="Phoeber home"><img src="/logo.png" alt="Phoeber" className="h-10 w-auto object-contain md:h-14" /></Link>
+          <nav className="hidden items-center gap-7 text-xs font-semibold uppercase tracking-wide md:flex">{t.nav.map((item, index) => <Link key={item} href={['#home', '#products', '#applications', '#about', '#contact'][index]} className="hover:text-[#105fb8]">{item}</Link>)}</nav>
+          <div className="flex items-center gap-2"><button type="button" onClick={() => setLanguage(language === 'en' ? 'fr' : 'en')} className="border border-[#6c9ec3] px-3 py-2 text-xs font-bold uppercase text-[#1a2c5a] hover:bg-[#f7faff]" aria-label="Switch language">{language === 'en' ? 'FR' : 'EN'}</button><Link href="#contact" className="bg-[#105fb8] px-4 py-2 text-xs font-bold uppercase tracking-wide text-white transition hover:bg-[#1a2c5a] md:px-6 md:py-3">{t.quote}</Link></div>
         </div>
       </header>
 
-      {/* Hero Section */}
-      <section className="pt-20 md:pt-32 pb-12 md:pb-20 px-4 md:px-6 border-b border-[#6c9ec3]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-20">
-            <div className="col-span-1 md:col-span-2">
-              <p className="text-[#6c9ec3] text-xs font-medium tracking-widest mb-4 md:mb-8">
-                {t.oran}
-              </p>
-              <p className="text-[#105fb8] text-sm md:text-base font-bold tracking-wide uppercase mb-3 md:mb-4">
-                {language === 'fr' ? 'Fabricant de fibre polyester HCS' : 'HCS polyester fiber manufacturer'}
-              </p>
-              <h1 className="text-3xl md:text-6xl font-black text-[#1a2c5a] leading-tight mb-6 md:mb-8">
-                SECOND <span className="text-[#105fb8]">LIFE,</span> {language === 'fr' ? 'FIRST QUALITY.' : 'FIRST QUALITY.'}
-              </h1>
-              <div className="flex flex-col sm:flex-row gap-3 md:gap-6">
-                <Link
-                  href="#process"
-                  className="bg-[#105fb8] hover:bg-[#1a2c5a] text-white px-6 md:px-8 py-3 md:py-4 font-bold text-xs md:text-sm transition-colors inline-block text-center"
-                >
-                  {t.discover}
-                </Link>
-                <Link
-                  href="#contact"
-                  className="border-2 border-[#1a2c5a] text-[#1a2c5a] hover:bg-[#1a2c5a] hover:text-white px-6 md:px-8 py-3 md:py-4 font-bold text-xs md:text-sm transition-colors inline-block text-center"
-                >
-                  {t.quote}
-                </Link>
-              </div>
-            </div>
-            <div className="col-span-1 md:col-span-1 flex flex-col gap-6 md:gap-12">
-              <div>
-                <p className="text-[#105fb8] text-sm md:text-sm font-bold mb-1 md:mb-2">48h</p>
-                <p className="text-[#6c9ec3] text-xs">{t.delaiLivraison}</p>
-              </div>
-              <div>
-                <p className="text-[#105fb8] text-xl md:text-3xl font-bold mb-1 md:mb-2">7-15D</p>
-                <p className="text-[#6c9ec3] text-xs">{t.denierDisponible}</p>
-              </div>
-              <div>
-                <p className="text-[#105fb8] text-xl md:text-3xl font-bold mb-1 md:mb-2">250kg</p>
-                <p className="text-[#6c9ec3] text-xs">{t.ballesStandards}</p>
-              </div>
-            </div>
-          </div>
+      <section id="home" className="border-b border-[#6c9ec3]/40 px-4 py-16 md:px-6 md:py-28">
+        <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-[1.4fr_0.6fr] md:items-end">
+          <div><p className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-[#105fb8]">{t.location}</p><h1 className="max-w-4xl text-4xl font-black leading-[1.05] tracking-tight md:text-7xl">{t.heroTitle}</h1><p className="mt-5 text-lg font-bold tracking-wide text-[#105fb8] md:text-2xl">{t.slogan}</p><p className="mt-6 max-w-2xl text-base leading-7 text-[#526b8c] md:text-lg">{t.heroText}</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><Link href="#products" className="bg-[#105fb8] px-6 py-3 text-center text-sm font-bold uppercase text-white transition hover:bg-[#1a2c5a]">{t.viewProducts}</Link><Link href="#contact" className="border border-[#1a2c5a] px-6 py-3 text-center text-sm font-bold uppercase text-[#1a2c5a] transition hover:bg-[#1a2c5a] hover:text-white">{t.quote}</Link></div></div>
+          <div className="border-l-4 border-[#105fb8] pl-6"><p className="text-3xl font-black text-[#105fb8]">HCS rPET</p><p className="mt-2 text-sm leading-6 text-[#526b8c]">{t.hcsText}</p></div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-12 md:py-20 px-4 md:px-6 border-b border-[#6c9ec3]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20">
-            <div>
-              <p className="text-[#105fb8] text-xs font-bold tracking-widest mb-4 md:mb-8">— QUI SOMMES-NOUS</p>
-              <h2 className="text-2xl md:text-5xl font-black text-[#1a2c5a] leading-tight mb-6 md:mb-12">
-                LA OU LES AUTRES <span className="text-[#105fb8]">IMPORTENT,</span> NOUS PRODUISONS.
-              </h2>
-              <p className="text-[#666] text-xs md:text-sm leading-relaxed mb-4 md:mb-8">
-                Phoeber est une startup industrielle algérienne basée à Oran, pionnière dans la transformation de bouteilles plastiques post-consommation en fibre polyester creuse de haute qualité destinée aux secteurs du textile, de la literie et de l&apos;ameublement.
-              </p>
-              <p className="text-[#666] text-xs md:text-sm leading-relaxed">
-                Nous développons une chaîne de valeur entièrement nationale qui transforme un déchet en une matière première à forte valeur ajoutée, afin d&apos;approvisionner les industriels algériens en dinars et de réduire la dépendance aux importations.
-              </p>
-            </div>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-6">
-              <div className="border border-[#6c9ec3] p-4 md:p-6">
-                <p className="text-[#1a2c5a] font-bold text-xs md:text-sm mb-1 md:mb-2">100% Algérien</p>
-                <p className="text-[#6c9ec3] text-xs md:text-xs">Matière, process et livraison locale</p>
-              </div>
-              <div className="border border-[#6c9ec3] p-4 md:p-6">
-                <p className="text-[#1a2c5a] font-bold text-xs md:text-sm mb-1 md:mb-2">Certifiable rPET</p>
-                <p className="text-[#6c9ec3] text-xs md:text-xs">Trace de la bouteille a la balle</p>
-              </div>
-              <div className="border border-[#6c9ec3] p-4 md:p-6">
-                <p className="text-[#1a2c5a] font-bold text-xs md:text-sm mb-1 md:mb-2">Paiement DZD</p>
-                <p className="text-[#6c9ec3] text-xs md:text-xs">Aucune depense en devises</p>
-              </div>
-              <div className="border border-[#6c9ec3] p-4 md:p-6">
-                <p className="text-[#1a2c5a] font-bold text-xs md:text-sm mb-1 md:mb-2">Livraison 48h</p>
-                <p className="text-[#6c9ec3] text-xs md:text-xs">Stock permanent disponible</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="border-b border-[#6c9ec3]/40 bg-white"><img src="/phoeber-fibre-showcase.jpeg" alt={language === 'fr' ? 'Fibre polyester HCS recyclée Phoeber' : 'Phoeber recycled HCS polyester fiber'} className="block h-auto w-full object-cover" /></section>
 
-      {/* Product Section */}
-      <section id="product" className="py-12 md:py-20 px-4 md:px-6 border-b border-[#6c9ec3]">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-20">
-            <div>
-              <p className="text-[#105fb8] text-xs font-bold tracking-widest mb-4 md:mb-8">— NOTRE PRODUIT</p>
-              <h2 className="text-2xl md:text-5xl font-black text-[#1a2c5a] leading-tight mb-6 md:mb-8">
-                FIBRE POLYESTER <span className="text-[#105fb8]">CREUSE CONJUGUEE</span> HCS RPET
-              </h2>
-              <p className="text-[#6c9ec3] text-xs md:text-sm leading-relaxed mb-4 md:mb-6">
-                Notre fibre est produite a partir de paillettes de bouteilles PET recyclees. Sa structure creuse lui confere legerete, gonflant et resilience exceptionnels. Qualite identique a la fibre vierge importee, a un prix competitif.
-              </p>
-              <p className="text-[#6c9ec3] text-xs font-medium tracking-wide mb-6 md:mb-8">
-                LIVREE EN 48H / IMPORTEE EN 4-8 SEMAINES
-              </p>
-              <div className="space-y-3 md:space-y-4">
-                <div className="flex gap-3 md:gap-4">
-                  <span className="text-[#105fb8] font-bold text-xs md:text-sm">7 Denier</span>
-                  <span className="text-[#6c9ec3] text-xs md:text-sm">Oreillers & coussins premium</span>
-                </div>
-                <div className="flex gap-3 md:gap-4">
-                  <span className="text-[#105fb8] font-bold text-xs md:text-sm">15 Denier</span>
-                  <span className="text-[#6c9ec3] text-xs md:text-sm">Matelas & rembourrage epais</span>
-                </div>
-              </div>
-            </div>
-            <div className="space-y-3 md:space-y-6">
-              <div className="border border-[#6c9ec3] p-4 md:p-6">
-                <p className="text-[#105fb8] font-bold text-xs mb-2 md:mb-3">7 Denier</p>
-                <p className="text-[#1a2c5a] font-bold text-xs md:text-sm mb-3 md:mb-4">Oreillers & coussins premium</p>
-                <div className="flex flex-wrap gap-1 md:gap-2">
-                  <span className="border border-[#6c9ec3] px-2 md:px-3 py-1 text-xs text-[#6c9ec3]">Structure creuse conjuguee</span>
-                  <span className="border border-[#6c9ec3] px-2 md:px-3 py-1 text-xs text-[#6c9ec3]">Silicone anti-feutrage</span>
-                  <span className="border border-[#6c9ec3] px-2 md:px-3 py-1 text-xs text-[#6c9ec3]">Coupe : 32 mm</span>
-                  <span className="border border-[#6c9ec3] px-2 md:px-3 py-1 text-xs text-[#6c9ec3]">Gonflant superieur</span>
-                </div>
-              </div>
-              <div className="border border-[#6c9ec3] p-4 md:p-6">
-                <p className="text-[#105fb8] font-bold text-xs mb-2 md:mb-3">15 Denier</p>
-                <p className="text-[#1a2c5a] font-bold text-xs md:text-sm mb-3 md:mb-4">Matelas & rembourrage epais</p>
-                <div className="flex flex-wrap gap-1 md:gap-2">
-                  <span className="border border-[#6c9ec3] px-2 md:px-3 py-1 text-xs text-[#6c9ec3]">Structure creuse HCS</span>
-                  <span className="border border-[#6c9ec3] px-2 md:px-3 py-1 text-xs text-[#6c9ec3]">Haute resilience</span>
-                  <span className="border border-[#6c9ec3] px-2 md:px-3 py-1 text-xs text-[#6c9ec3]">Coupe : 51 mm</span>
-                  <span className="border border-[#6c9ec3] px-2 md:px-3 py-1 text-xs text-[#6c9ec3]">Resistance a la compression</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section id="about" className="border-b border-[#6c9ec3]/40 px-4 py-16 md:px-6 md:py-24"><div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-2 md:gap-24"><div><p className="text-xs font-bold uppercase tracking-[0.2em] text-[#105fb8]">{t.aboutLabel}</p><h2 className="mt-4 text-3xl font-black leading-tight md:text-5xl">{t.aboutTitle}</h2></div><div className="space-y-5 text-sm leading-7 text-[#526b8c]">{t.aboutText.map((text) => <p key={text}>{text}</p>)}</div></div></section>
 
-      {/* Process Section */}
-      <section id="process" className="py-20 px-6 border-b border-[#6c9ec3] bg-[#1a2c5a] text-white">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-[#105fb8] text-xs font-bold tracking-widest mb-8">— PROCESSUS DE FABRICATION</p>
-          <h2 className="text-5xl font-black leading-tight mb-16">
-            DE LA BOUTEILLE <span className="text-[#105fb8]">A LA BALLE</span> EN 8 ETAPES.
-          </h2>
-          <div className="grid grid-cols-4 gap-6">
-            {[
-              {
-                num: '01',
-                title: 'Collecte des paillettes rPET',
-                desc: 'Approvisionnement aupres de fournisseurs locaux agrees.',
-              },
-              {
-                num: '02',
-                title: 'Sechage',
-                desc: 'Elimination de toute humidite residuelle avant fusion.',
-              },
-              {
-                num: '03',
-                title: 'Fusion a 280 C',
-                desc: 'Polymer fondu en phase liquide homogene.',
-              },
-              {
-                num: '04',
-                title: 'Filtration',
-                desc: 'Purification du polymer fondu de toute impurete.',
-              },
-              {
-                num: '05',
-                title: 'Filieres creuses',
-                desc: 'Extrusion a travers des filieres microscopiques creuses.',
-              },
-              {
-                num: '06',
-                title: 'Etirage & frisage',
-                desc: 'Structuration mecanique pour resilience et gonflant.',
-              },
-              {
-                num: '07',
-                title: 'Siliconisation',
-                desc: 'Traitement de surface pour douceur et anti-feutrage.',
-              },
-              {
-                num: '08',
-                title: 'Coupe & emballage',
-                desc: 'Fibres 32-51 mm, emballees en balles de 250 kg.',
-              },
-            ].map((step) => (
-              <div key={step.num} className="border border-white/20 p-6">
-                <p className="text-[#105fb8] text-sm font-bold mb-3">{step.num}</p>
-                <h3 className="font-bold text-sm mb-2">{step.title}</h3>
-                <p className="text-[#6c9ec3] text-xs">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+      <section id="products" className="border-b border-[#6c9ec3]/40 bg-[#f7faff] px-4 py-16 md:px-6 md:py-24"><div className="mx-auto max-w-7xl"><div className="flex flex-col justify-between gap-4 md:flex-row md:items-end"><div><p className="text-xs font-bold uppercase tracking-[0.2em] text-[#105fb8]">{t.productsLabel}</p><h2 className="mt-3 text-3xl font-black md:text-5xl">{t.productsTitle}</h2></div><p className="max-w-md text-sm leading-6 text-[#526b8c]">{t.productsText}</p></div><div className="mt-10 grid gap-6 md:grid-cols-2">{products.map((product) => <article key={product.name} className="border border-[#6c9ec3] bg-white p-6 md:p-8"><h3 className="text-2xl font-black text-[#1a2c5a]">{product.name}</h3><p className="mt-3 text-sm font-semibold text-[#105fb8]">{product.use[language]}</p><ul className="mt-6 space-y-3 text-sm text-[#526b8c]">{product.specs.map((spec) => <li key={spec} className="border-b border-[#6c9ec3]/30 pb-3">{language === 'fr' && spec === 'Siliconized finish' ? 'Finition siliconée' : spec}</li>)}</ul><Link href="#contact" className="mt-8 inline-block bg-[#105fb8] px-5 py-3 text-xs font-bold uppercase text-white hover:bg-[#1a2c5a]">{t.quote}</Link></article>)}</div></div></section>
 
-        {/* Transformation Visual */}
-        <div className="mt-20">
-          <img
-            src="/transformation.webp"
-            alt="Transformation du plastique en fibre"
-            className="w-full h-96 object-cover transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer"
-          />
-        </div>
-      </section>
+      <section id="applications" className="border-b border-[#6c9ec3]/40 px-4 py-16 md:px-6 md:py-24"><div className="mx-auto max-w-7xl"><p className="text-xs font-bold uppercase tracking-[0.2em] text-[#105fb8]">{t.applicationsLabel}</p><h2 className="mt-3 max-w-3xl text-3xl font-black md:text-5xl">{t.applicationsTitle}</h2><div className="mt-10 grid gap-px overflow-hidden border border-[#6c9ec3] bg-[#6c9ec3] sm:grid-cols-2 lg:grid-cols-5">{applications[language].map((application) => <div key={application} className="bg-white p-6 text-sm font-bold">{application}</div>)}</div></div></section>
 
-      {/* Local Advantages */}
-      <section className="py-20 px-6 border-b border-[#6c9ec3]">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-[#105fb8] text-xs font-bold tracking-widest mb-8">— POURQUOI Phoeber</p>
-          <h2 className="text-5xl font-black text-[#1a2c5a] leading-tight mb-12">
-            L&apos;AVANTAGE <span className="text-[#105fb8]">LOCAL.</span>
-          </h2>
-          <div className="grid grid-cols-5 gap-6">
-            {[
-              {
-                title: 'LIVRAISON EN 48H',
-                desc: 'Contre 4 a 8 semaines pour une importation de Chine ou Coree du Sud.',
-              },
-              {
-                title: 'PAIEMENT EN DINAR DZD',
-                desc: 'Sans devises, sans marche parallele, sans risque de change.',
-              },
-              {
-                title: 'MATIERE CERTIFIABLE RPET',
-                desc: 'Tracee de la bouteille a la balle. Repond aux exigences RSE.',
-              },
-              {
-                title: 'PRIX COMPETITIF',
-                desc: 'Inferieur a la fibre importee rendue Algerie, toutes charges comprises.',
-              },
-              {
-                title: 'ZERO RUPTURE DE STOCK',
-                desc: 'Production locale = stock permanent. Votre ligne ne s&apos;arrete jamais.',
-              },
-            ].map((item, i) => (
-              <div key={i} className="border-t-4 border-[#105fb8] pt-4">
-                <h3 className="font-black text-[#1a2c5a] text-xs mb-3">{item.title}</h3>
-                <p className="text-[#6c9ec3] text-xs leading-relaxed">{item.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      <section className="border-b border-[#6c9ec3]/40 bg-[#1a2c5a] px-4 py-16 text-white md:px-6 md:py-24"><div className="mx-auto max-w-7xl"><p className="text-xs font-bold uppercase tracking-[0.2em] text-[#6c9ec3]">{t.whyLabel}</p><div className="mt-8 grid gap-8 md:grid-cols-3">{t.why.map(([title, text]) => <div key={title}><h3 className="text-xl font-black">{title}</h3><p className="mt-3 text-sm leading-6 text-[#d9e8f5]">{text}</p></div>)}</div></div></section>
 
-      {/* Impact Section */}
-      <section id="impact" className="py-20 px-6 border-b border-[#6c9ec3]">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-[#105fb8] text-xs font-bold tracking-widest mb-8">— NOTRE IMPACT</p>
-          <h2 className="text-5xl font-black text-[#1a2c5a] leading-tight mb-16">
-            CHAQUE TONNE <span className="text-[#105fb8]">COMPTE.</span>
-          </h2>
-          <div className="grid grid-cols-2 gap-8 mb-12">
-            <div>
-              <p className="text-[#1a2c5a] text-base leading-relaxed mb-8">
-                Chaque tonne de fibre Phoeber transforme un dechet en matiere premiere a forte valeur ajoutee, tout en preservant les ressources naturelles et en renforçant la souverainete industrielle nationale.
-              </p>
-            </div>
-            <div className="grid grid-cols-2 gap-4 border-t-2 border-r-2 border-b-2 border-[#105fb8]">
-              <div className="border-r-2 border-b-2 border-[#105fb8] p-6 text-center">
-                <p className="text-4xl font-black text-[#1a2c5a] mb-2">-50%</p>
-                <p className="text-xs text-[#6c9ec3]">d&apos;energie economisee vs polyester vierge</p>
-              </div>
-              <div className="border-b-2 border-[#105fb8] p-6 text-center">
-                <p className="text-4xl font-black text-[#1a2c5a] mb-2">-70%</p>
-                <p className="text-xs text-[#6c9ec3]">d&apos;eau economisee vs polyester vierge</p>
-              </div>
-              <div className="border-r-2 border-[#105fb8] p-6 text-center">
-                <p className="text-4xl font-black text-[#1a2c5a] mb-2">-1,5T</p>
-                <p className="text-xs text-[#6c9ec3]">de CO₂ evitee par tonne de fibre produite</p>
-              </div>
-              <div className="p-6 text-center">
-                <p className="text-4xl font-black text-[#1a2c5a] mb-2">100%</p>
-                <p className="text-xs text-[#6c9ec3]">dechet local transforme en matiere nationale</p>
-              </div>
-            </div>
-          </div>
-          <div className="grid grid-cols-3 gap-6">
-            <div className="border-l-4 border-[#105fb8] pl-6 py-4">
-              <p className="text-[#105fb8] font-bold text-xs mb-3">01</p>
-              <h3 className="font-black text-[#1a2c5a] text-sm mb-3">SOUVERAINETE INDUSTRIELLE</h3>
-              <p className="text-[#6c9ec3] text-xs">Une matiere premiere produite en Algerie a partir de dechets plastiques locaux.</p>
-            </div>
-            <div className="border-l-4 border-[#105fb8] pl-6 py-4">
-              <p className="text-[#105fb8] font-bold text-xs mb-3">02</p>
-              <h3 className="font-black text-[#1a2c5a] text-sm mb-3">ECONOMIE CIRCULAIRE</h3>
-              <p className="text-[#6c9ec3] text-xs">Chaque tonne de fibre produite valorise des bouteilles destinees a l&apos;enfouissement ou a l&apos;abandon dans la nature.</p>
-            </div>
-            <div className="border-l-4 border-[#105fb8] pl-6 py-4">
-              <p className="text-[#105fb8] font-bold text-xs mb-3">03</p>
-              <h3 className="font-black text-[#1a2c5a] text-sm mb-3">IMPACT ENVIRONNEMENTAL</h3>
-              <p className="text-[#6c9ec3] text-xs">Jusqu&apos;a 50% d&apos;energie, 70% d&apos;eau et 1,5 tonne de CO₂ evitee par tonne de fibre produite, compare a la fabrication de polyester vierge.</p>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section id="contact" className="px-4 py-16 md:px-6 md:py-24"><div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-[0.8fr_1.2fr]"><div><p className="text-xs font-bold uppercase tracking-[0.2em] text-[#105fb8]">{t.contactLabel}</p><h2 className="mt-3 text-3xl font-black md:text-5xl">{t.contactTitle}</h2><p className="mt-5 text-sm leading-6 text-[#526b8c]">{t.contactText}</p><div className="mt-8 space-y-2 text-sm text-[#526b8c]"><p>Oran, Algeria</p><p>contact@fibaer.dz</p><p>https://v0-phoeber.vercel.app/</p></div></div><form onSubmit={handleSubmit} className="grid gap-4 sm:grid-cols-2" aria-label={t.contactTitle}><label className="text-sm font-semibold">{t.form[0]}<input required name="name" type="text" className="mt-2 w-full border border-[#6c9ec3] px-3 py-3 font-normal outline-none focus:border-[#105fb8]" /></label><label className="text-sm font-semibold">{t.form[1]}<input required name="company" type="text" className="mt-2 w-full border border-[#6c9ec3] px-3 py-3 font-normal outline-none focus:border-[#105fb8]" /></label><label className="text-sm font-semibold">{t.form[2]}<input required name="email" type="email" className="mt-2 w-full border border-[#6c9ec3] px-3 py-3 font-normal outline-none focus:border-[#105fb8]" /></label><label className="text-sm font-semibold">{t.form[3]}<input required name="phone" type="tel" className="mt-2 w-full border border-[#6c9ec3] px-3 py-3 font-normal outline-none focus:border-[#105fb8]" /></label><label className="text-sm font-semibold">{t.form[4]}<select required name="product" className="mt-2 w-full border border-[#6c9ec3] bg-white px-3 py-3 font-normal outline-none focus:border-[#105fb8]"><option value="">{t.select}</option><option>HCS rPET 7D</option><option>HCS rPET 15D</option></select></label><label className="text-sm font-semibold">{t.form[5]}<input required name="quantity" type="text" className="mt-2 w-full border border-[#6c9ec3] px-3 py-3 font-normal outline-none focus:border-[#105fb8]" /></label><label className="text-sm font-semibold sm:col-span-2">{t.form[6]}<textarea required name="message" rows={5} className="mt-2 w-full border border-[#6c9ec3] px-3 py-3 font-normal outline-none focus:border-[#105fb8]" /></label><div className="sm:col-span-2"><button type="submit" className="bg-[#105fb8] px-6 py-3 text-sm font-bold uppercase text-white hover:bg-[#1a2c5a]">{t.quote}</button>{submitted && <p className="mt-3 text-sm text-[#105fb8]">{t.prepared}</p>}</div></form></div></section>
 
-      {/* Clients Section */}
-      <section className="py-20 px-6 border-b border-[#6c9ec3]">
-        <div className="max-w-7xl mx-auto">
-          <p className="text-[#105fb8] text-xs font-bold tracking-widest mb-8">— NOS CLIENTS</p>
-          <h2 className="text-5xl font-black text-[#1a2c5a] leading-tight mb-12">
-            FABRICANTS <span className="text-[#105fb8]">ALGERIENS</span> DE LITERIE.
-          </h2>
-          <div className="grid grid-cols-2 gap-20">
-            <div>
-              <p className="text-[#6c9ec3] text-sm leading-relaxed mb-6">
-                Nous nous adressons aux fabricants de matelas, d&apos;oreillers et de coussins algeriens qui importent aujourd&apos;hui leur fibre de Chine et de Coree du Sud.
-              </p>
-              <p className="text-[#6c9ec3] text-sm leading-relaxed">
-                Nous leur offrons une alternative locale fiable, moins chere rendue usine, et certifiable rPET pour leurs propres exigences commerciales.
-              </p>
-            </div>
-            <div className="space-y-4">
-              <div className="border-l-4 border-[#105fb8] pl-6 py-4">
-                <p className="font-bold text-[#1a2c5a] text-sm mb-1">Fabricants de matelas</p>
-                <p className="text-[#6c9ec3] text-xs">15 Denier HCS iPET</p>
-              </div>
-              <div className="border-l-4 border-[#105fb8] pl-6 py-4">
-                <p className="font-bold text-[#1a2c5a] text-sm mb-1">Fabricants d&apos;oreillers</p>
-                <p className="text-[#6c9ec3] text-xs">7 Denier HCS iPET</p>
-              </div>
-              <div className="border-l-4 border-[#105fb8] pl-6 py-4">
-                <p className="font-bold text-[#1a2c5a] text-sm mb-1">Fabricants de coussins</p>
-                <p className="text-[#6c9ec3] text-xs">7 Denier HCS iPET</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Contact Section */}
-      <section id="contact" className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-2 gap-20">
-            <div>
-              <p className="text-[#105fb8] text-xs font-bold tracking-widest mb-8">— CONTACT</p>
-              <h2 className="text-4xl font-black text-[#1a2c5a] leading-tight mb-12">
-                PARLONS <span className="text-[#105fb8]">FIBRE.</span>
-              </h2>
-              <div className="space-y-8">
-                <div>
-                  <p className="text-[#105fb8] text-xs font-bold mb-2">ADRESSE</p>
-                  <p className="text-[#1a2c5a] text-sm">Zone Industrielle -- Oran, Algerie</p>
-                </div>
-                <div>
-                  <p className="text-[#105fb8] text-xs font-bold mb-2">EMAIL</p>
-                  <p className="text-[#1a2c5a] text-sm">contact@fibaer.dz</p>
-                </div>
-                <div>
-                  <p className="text-[#105fb8] text-xs font-bold mb-2">SITE WEB</p>
-                  <p className="text-[#1a2c5a] text-sm">www.fibaer.dz</p>
-                </div>
-                <blockquote className="border-l-4 border-[#105fb8] pl-6 py-4">
-                  <p className="font-bold text-[#1a2c5a] mb-2">
-                    &quot;La ou les autres importent, nous produisons.&quot;
-                  </p>
-                  <p className="text-[#6c9ec3] text-xs">Phoeber -- Oran, Algerie</p>
-                </blockquote>
-              </div>
-            </div>
-            <div>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-[#6c9ec3] text-xs font-bold mb-3">NOM</label>
-                    <input
-                      type="text"
-                      placeholder="Votre nom"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full bg-white border border-[#6c9ec3] px-4 py-3 text-sm focus:outline-none focus:border-[#105fb8]"
-                    />
-                  </div>
-                  <div>
-                    <label className="block text-[#6c9ec3] text-xs font-bold mb-3">ENTREPRISE</label>
-                    <input
-                      type="text"
-                      placeholder="Votre entreprise"
-                      value={formData.company}
-                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
-                      className="w-full bg-white border border-[#6c9ec3] px-4 py-3 text-sm focus:outline-none focus:border-[#105fb8]"
-                    />
-                  </div>
-                </div>
-                <div>
-                  <label className="block text-[#6c9ec3] text-xs font-bold mb-3">EMAIL</label>
-                  <input
-                    type="email"
-                    placeholder="email@example.dz"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full bg-white border border-[#6c9ec3] px-4 py-3 text-sm focus:outline-none focus:border-[#105fb8]"
-                  />
-                </div>
-                <div>
-                  <label className="block text-[#6c9ec3] text-xs font-bold mb-3">MESSAGE</label>
-                  <textarea
-                    placeholder="Votre message ou demande de devis..."
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    rows={6}
-                    className="w-full bg-white border border-[#6c9ec3] px-4 py-3 text-sm focus:outline-none focus:border-[#105fb8] resize-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-[#105fb8] hover:bg-[#1a2c5a] text-white py-4 font-bold text-sm transition-colors"
-                >
-                  ENVOYER LE MESSAGE
-                </button>
-              </form>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-[#1a2c5a] text-white py-12 px-6 border-t border-[#6c9ec3]">
-        <div className="max-w-7xl mx-auto text-center">
-          <p className="text-xs text-white/50 font-medium">© 2024 Phoeber -- Oran, Algerie</p>
-        </div>
-      </footer>
+      <footer className="border-t border-[#6c9ec3]/40 px-4 py-6 md:px-6"><div className="mx-auto flex max-w-7xl flex-col gap-2 text-xs text-[#526b8c] md:flex-row md:items-center md:justify-between"><span>© 2026 Phoeber · Oran, Algeria</span><span>{t.footer}</span></div></footer>
     </main>
   )
 }
