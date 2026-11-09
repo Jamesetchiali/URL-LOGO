@@ -9,6 +9,7 @@ const copy = {
     quote: 'Request a Quote',
     location: 'Oran, Algeria · Local manufacturing',
     heroTitle: 'Recycled HCS polyester fiber for industry.',
+    slogan: 'Second life, First quality',
     heroText: 'Phoeber manufactures Hollow Conjugated Siliconized rPET Fiber for mattress, pillow, cushion, bedding, textile and furniture manufacturers.',
     viewProducts: 'View Products',
     hcsText: 'A consistent recycled fiber solution, manufactured for professional industrial use.',
@@ -35,6 +36,7 @@ const copy = {
     quote: 'Demander un devis',
     location: 'Oran, Algérie · Fabrication locale',
     heroTitle: 'Fibre polyester HCS recyclée pour l’industrie.',
+    slogan: 'Seconde vie, première qualité',
     heroText: 'Phoeber fabrique une fibre rPET polyester creuse, conjuguée et siliconée pour les fabricants de matelas, oreillers, coussins, literie, textile et ameublement.',
     viewProducts: 'Voir les produits',
     hcsText: 'Une solution de fibre recyclée régulière, fabriquée pour un usage industriel professionnel.',
@@ -91,7 +93,7 @@ export default function Page() {
 
       <section id="home" className="border-b border-[#6c9ec3]/40 px-4 py-16 md:px-6 md:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 md:grid-cols-[1.4fr_0.6fr] md:items-end">
-          <div><p className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-[#105fb8]">{t.location}</p><h1 className="max-w-4xl text-4xl font-black leading-[1.05] tracking-tight md:text-7xl">{t.heroTitle}</h1><p className="mt-6 max-w-2xl text-base leading-7 text-[#526b8c] md:text-lg">{t.heroText}</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><Link href="#products" className="bg-[#105fb8] px-6 py-3 text-center text-sm font-bold uppercase text-white transition hover:bg-[#1a2c5a]">{t.viewProducts}</Link><Link href="#contact" className="border border-[#1a2c5a] px-6 py-3 text-center text-sm font-bold uppercase text-[#1a2c5a] transition hover:bg-[#1a2c5a] hover:text-white">{t.quote}</Link></div></div>
+          <div><p className="mb-5 text-xs font-bold uppercase tracking-[0.2em] text-[#105fb8]">{t.location}</p><h1 className="max-w-4xl text-4xl font-black leading-[1.05] tracking-tight md:text-7xl">{t.heroTitle}</h1><p className="mt-5 text-lg font-bold tracking-wide text-[#105fb8] md:text-2xl">{t.slogan}</p><p className="mt-6 max-w-2xl text-base leading-7 text-[#526b8c] md:text-lg">{t.heroText}</p><div className="mt-8 flex flex-col gap-3 sm:flex-row"><Link href="#products" className="bg-[#105fb8] px-6 py-3 text-center text-sm font-bold uppercase text-white transition hover:bg-[#1a2c5a]">{t.viewProducts}</Link><Link href="#contact" className="border border-[#1a2c5a] px-6 py-3 text-center text-sm font-bold uppercase text-[#1a2c5a] transition hover:bg-[#1a2c5a] hover:text-white">{t.quote}</Link></div></div>
           <div className="border-l-4 border-[#105fb8] pl-6"><p className="text-3xl font-black text-[#105fb8]">HCS rPET</p><p className="mt-2 text-sm leading-6 text-[#526b8c]">{t.hcsText}</p></div>
         </div>
       </section>
