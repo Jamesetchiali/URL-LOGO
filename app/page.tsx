@@ -219,12 +219,12 @@ export default function Page() {
       </section>
 
       {/* Fibre Showcase */}
-      <section className="px-4 md:px-6 border-b border-[#6c9ec3] bg-white">
-        <div className="max-w-7xl mx-auto">
+      <section className="px-0 border-b border-[#6c9ec3] bg-white">
+        <div className="max-w-none w-full">
           <img
             src="/phoeber-fibre-showcase.jpeg"
             alt="Fibre polyester HCS Phoeber"
-            className="w-full h-auto object-cover"
+            className="block w-full h-auto object-cover"
           />
         </div>
       </section>
