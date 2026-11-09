@@ -533,7 +533,7 @@ export default function Page() {
                 </div>
                 <div>
                   <p className="text-[#105fb8] text-xs font-bold mb-2">SITE WEB</p>
-                  <p className="text-[#1a2c5a] text-sm">www.fibaer.dz</p>
+                  <p className="text-[#1a2c5a] text-sm">https://v0-phoeber.vercel.app/</p>
                 </div>
                 <blockquote className="border-l-4 border-[#105fb8] pl-6 py-4">
                   <p className="font-bold text-[#1a2c5a] mb-2">
