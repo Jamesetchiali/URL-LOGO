@@ -2,39 +2,27 @@ import { Analytics } from '@vercel/analytics/next'
 import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
+const siteUrl = 'https://v0-phoeber.vercel.app'
+
 export const metadata: Metadata = {
-  title: 'Phoeber - Première fibre polyester recyclée en Algérie',
-  description: 'Startup industrielle basée à Oran, pionnière dans la transformation de bouteilles plastiques en fibre polyester creuse haut de gamme. Production 100% locale en dinars.',
-  keywords: 'fibre polyester, recyclage, Algérie, économie circulaire, matière première',
-  generator: 'v0.app',
+  metadataBase: new URL(siteUrl),
+  title: 'PHŒBER | Recycled HCS Polyester Fiber Manufacturer in Algeria',
+  description: 'PHŒBER manufactures recycled HCS polyester fiber in Oran, Algeria. Discover our 7D and 15D fiber solutions for mattress, pillow and cushion manufacturers.',
+  keywords: ['Recycled polyester fiber Algeria', 'HCS rPET fiber', 'Polyester fiber manufacturer Algeria', 'Siliconized hollow polyester fiber', 'Polyester fiber for mattresses', 'Polyester fiber for pillows', 'Recycled filling fiber'],
+  alternates: { canonical: siteUrl },
   openGraph: {
-    title: 'Phoeber - Première fibre polyester recyclée en Algérie',
-    description: 'Startup industrielle transformant les déchets plastiques en fibre polyester de qualité.',
-    url: 'https://fibaer.vercel.app',
+    title: 'PHŒBER | Recycled HCS Polyester Fiber Manufacturer in Algeria',
+    description: 'Recycled HCS polyester fiber manufactured in Oran, Algeria for industrial bedding and filling applications.',
+    url: siteUrl,
+    siteName: 'PHŒBER',
     type: 'website',
+    images: [{ url: '/phoeber-fibre-showcase.jpeg', width: 2048, height: 1152, alt: 'PHŒBER recycled HCS polyester fiber' }],
   },
-  icons: {
-    icon: '/logo.png',
-  },
+  icons: { icon: '/logo.png' },
 }
 
-export const viewport: Viewport = {
-  colorScheme: 'light',
-  themeColor: '#105fb8',
-  userScalable: true,
-}
+export const viewport: Viewport = { colorScheme: 'light', themeColor: '#105fb8', userScalable: true }
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
-  return (
-    <html lang="fr" className="bg-[#ffffff]">
-      <body className="antialiased bg-[#ffffff] text-[#1a2c5a]">
-        {children}
-        {process.env.NODE_ENV === 'production' && <Analytics />}
-      </body>
-    </html>
-  )
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  return <html lang="en" className="bg-white"><body className="antialiased bg-white text-[#1a2c5a]">{children}{process.env.NODE_ENV === 'production' && <Analytics />}</body></html>
 }
