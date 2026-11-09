@@ -218,6 +218,17 @@ export default function Page() {
         </div>
       </section>
 
+      {/* Fibre Showcase */}
+      <section className="px-4 md:px-6 border-b border-[#6c9ec3] bg-white">
+        <div className="max-w-7xl mx-auto">
+          <img
+            src="/phoeber-fibre-showcase.jpeg"
+            alt="Fibre polyester HCS Phoeber"
+            className="w-full h-auto object-cover"
+          />
+        </div>
+      </section>
+
       {/* About Section */}
       <section id="about" className="py-12 md:py-20 px-4 md:px-6 border-b border-[#6c9ec3]">
         <div className="max-w-7xl mx-auto">
